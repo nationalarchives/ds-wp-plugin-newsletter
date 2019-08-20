@@ -34,9 +34,8 @@ require_once('functions.php');
 // WP Hooks
 add_action('init', 'wporg_shortcodes_init');
 
+// create custom plugin settings menu
+add_action('admin_menu', 'tna_newsletter_create_menu');
+
 // Display Thank you page
 thank_you_page();
-
-
-
-

@@ -8,10 +8,14 @@
  */
 require_once('api-connection.php');
 
+$api_key = get_option('api_key'); // The API Key
+$api_id = get_option('api_id'); // The API ID
+$api_url = 'https://control.e-connectservice.com/rest'; // The API Base URL - Note: theres no trailing slash!
+
 $api = new ApiConnection(
-	'GgloG-LYo9fd0XcZEPLOqed34Us.', // The API ID
-	'In8-bAMpQUkCbU9zWM8QBpk_-WSufGpnn3Nn8h3XVsU.', // The API Key
-	'https://control.e-connectservice.com/rest' // The API Base URL - Note: theres no trailing slash!
+	$api_id, 
+	$api_key, 
+	$api_url
 );
 		
 /**
