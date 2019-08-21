@@ -8,8 +8,8 @@
  */
 require_once('api-connection.php');
 
-$api_key = get_option('api_key'); // The API Key
-$api_id = get_option('api_id'); // The API ID
+$api_key = esc_attr( get_option('tna_newsletter_api_key')); // The API Key
+$api_id =  esc_attr( get_option('tna_newsletter_api_id')); // The API ID
 $api_url = 'https://control.e-connectservice.com/rest'; // The API Base URL - Note: theres no trailing slash!
 
 $api = new ApiConnection(

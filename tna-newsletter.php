@@ -2,13 +2,13 @@
 /**
  * Plugin Name:       TNA Newsletter
  * Plugin URI:        https://example.com/plugins/the-basics/
- * Description:       Handle the basics with this plugin.
- * Version:           1.0.0
+ * Description:       Handle the E-Connect API and allow newsletter signups.
+ * Version:           0.1
  * Author:            Mihai Diaconita
  * Author URI:        https://nationalarchives.gov.uk
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       tna-newsletter
+ * Text Domain:       tna-newsletter    
  */
 
  /*
@@ -26,6 +26,13 @@ You should have received a copy of the GNU General Public License
 along with TNA Newsletter. If not, see {URI to Plugin License}.
 */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+// Plugin init
+add_action( 'plugins_loaded', 'tna_newsletter_plugin_Init' );
+
 // Includes
 require_once('inc/api-init.php');
 require_once('inc/tna-form-builder.php');
@@ -34,8 +41,8 @@ require_once('functions.php');
 // WP Hooks
 add_action('init', 'wporg_shortcodes_init');
 
+// Enqueue Scripts
+add_action( 'wp_enqueue_scripts', 'tna_newsletter_admin_scripts' );
+
 // create custom plugin settings menu
 add_action('admin_menu', 'tna_newsletter_create_menu');
-
-// Display Thank you page
-thank_you_page();
