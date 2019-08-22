@@ -124,8 +124,8 @@ function ds_wp_plugin_newsletter_settings_page() { ?>
             <div class="welcome-panel-column-container">
 
                 <form method="post" action="options.php">
-                    <?php settings_fields( 'tna-newsletter-settings-group' ); ?>
-                    <?php do_settings_sections( 'tna-newsletter-settings-group' ); ?>
+                    <?php settings_fields( 'ds-wp-plugin-newsletter-settings-group' ); ?>
+                    <?php do_settings_sections( 'ds-wp-plugin-newsletter-settings-group' ); ?>
                     <table class="form-table">
                         <tr valign="top">
                             <th scope="row">API Key</th>
