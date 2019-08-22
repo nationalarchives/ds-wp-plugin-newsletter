@@ -41,9 +41,12 @@ function wpdocs_ds_wp_plugin_newsletter_func( $atts) {
            if(!$results['valid']){
                $error = $results['response']['reason'];
            } else {
+               var_dump($results);
                 return thank_you_message(); 
            }
        }
+   } else {
+      return $form->init_form();
    }
 
    $form = new Newsletter_Form_Builder('signup','signup','','post',$error, $content);
@@ -71,7 +74,7 @@ function thank_you_message(){
         return $content;
        }
    }
-   return false;
+   return;
 }
 
 /**

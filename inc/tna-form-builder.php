@@ -108,7 +108,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_email_input(){
             if(function_exists('esc_attr')) {
-                return '<div class="form-row"><label for="email">' . esc_attr('Email address') .'</label><input type="email" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility" required></div>';
+                return '<div class="form-row"><label for="email">' . esc_attr('Email address') .'</label><input type="text" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility"></div>';
             } 
         }
     
