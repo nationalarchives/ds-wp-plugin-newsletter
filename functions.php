@@ -4,25 +4,25 @@
  * Plugin Initialisation
  * @codeCoverageIgnore
  */
-function tna_newsletter_plugin_Init() {
-    require_once dirname(__FILE__) . '/tna-newsletter.php';
-    register_activation_hook( __FILE__, 'tna-newsletter', 'activate' );
+function ds_wp_plugin_newsletter_plugin_Init() {
+    require_once dirname(__FILE__) . '/ds-wp-plugin-newsletter.php';
+    register_activation_hook( __FILE__, 'ds-wp-plugin-newsletter', 'activate' );
 }
 
 /**
  * Enqueue Scripts
  * @codeCoverageIgnore
  */
-function tna_newsletter_admin_scripts() {
-     wp_enqueue_script ( 'tna-newsletter-script', plugin_dir_url( __FILE__ ) . 'js/tna-newsletter.js','','',false );
-     wp_enqueue_style ( 'tna-newsletter-style', plugin_dir_url( __FILE__ ) . '/styles/tna-newsletter.css' );
+function ds_wp_plugin_newsletter_admin_scripts() {
+     wp_enqueue_script ( 'ds-wp-plugin-newsletter-script', plugin_dir_url( __FILE__ ) . 'js/ds-wp-plugin-newsletter.js','','',false );
+     wp_enqueue_style ( 'ds-wp-plugin-newsletter-style', plugin_dir_url( __FILE__ ) . '/styles/ds-wp-plugin-newsletter.css' );
   }
 
 /**
  * Shortcode [tna-newsletter]
  * @codeCoverageIgnore
  */
-function wpdocs_tna_newsletter_func( $atts) {
+function wpdocs_ds_wp_plugin_newsletter_func( $atts) {
     // API Connection
    global $results;
 
@@ -34,7 +34,7 @@ function wpdocs_tna_newsletter_func( $atts) {
 
    $content = array($form_title,$form_description,$form_privacy);
 
-   $atts = shortcode_atts( array(), $atts, 'tna_newsletter' );
+   $atts = shortcode_atts( array(), $atts, 'tna-newsletter' );
    
    if(isset($_POST['Submit'])){
        if(isset($_POST['email'])){
@@ -81,7 +81,7 @@ function thank_you_message(){
 function wporg_shortcodes_init()
 {
    // Wordpress Hooks
-   add_shortcode( 'tna_newsletter', 'wpdocs_tna_newsletter_func');
+   add_shortcode( 'tna-newsletter', 'wpdocs_ds_wp_plugin_newsletter_func');
 }       
 
 /**
@@ -90,10 +90,10 @@ function wporg_shortcodes_init()
  */
 function tna_newsletter_create_menu() {
 	//create new top-level menu
-	add_menu_page('TNA Newsletter', 'TNA Newsletter', 'administrator', __FILE__, 'tna_newsletter_settings_page' , 'dashicons-buddicons-pm' );
+	add_menu_page('TNA Newsletter', 'TNA Newsletter', 'administrator', __FILE__, 'ds_wp_plugin_newsletter_settings_page' , 'dashicons-buddicons-pm' );
 
 	//call register settings function
-	add_action( 'admin_init', 'register_tna_newsletter_settings' );
+	add_action( 'admin_init', 'register_ds_wp_plugin_newsletter_settings' );
 }
 
 /**
@@ -101,14 +101,14 @@ function tna_newsletter_create_menu() {
  * @codeCoverageIgnore
  **/
 function register_tna_newsletter_settings() {
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_api_key' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_api_id' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_title' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_paragraph' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_privacy' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_title' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_one' );
-	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_two' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_api_key' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_api_id' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_form_title' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_form_paragraph' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_form_privacy' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_tnx_title' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_one' );
+	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_two' );
 }
 
 /**

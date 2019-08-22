@@ -8,7 +8,7 @@
  * Author URI:        https://nationalarchives.gov.uk
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       tna-newsletter    
+ * Text Domain: ds-wp-plugin-newsletter
  */
 
  /*
@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Plugin init
-add_action( 'plugins_loaded', 'tna_newsletter_plugin_Init' );
+add_action( 'plugins_loaded', 'ds_wp_plugin_newsletter_plugin_Init' );
 
 // Includes
 require_once('inc/api-init.php');
@@ -43,7 +43,7 @@ require_once('functions.php');
 add_action('init', 'wporg_shortcodes_init');
 
 // Enqueue Scripts
-add_action( 'wp_enqueue_scripts', 'tna_newsletter_admin_scripts' );
+add_action( 'wp_enqueue_scripts', 'ds_wp_plugin_newsletter_admin_scripts' );
 
 // create custom plugin settings menu
-add_action('admin_menu', 'tna_newsletter_create_menu');
+add_action('admin_menu', 'ds_wp_plugin_newsletter_create_menu');

@@ -2,7 +2,7 @@
  * TNA Newsletter
  * Enable/Disable Submit button when the user accepts TNA's Privacy Policy
  */
-var tnaNewsLetter = function() {
+var dsWpPluginNewsletter = function() {
   var btn = document.querySelector('#newsletterSignUp');
   var checkBox = document.querySelector('#privacy_policy');
 
@@ -20,4 +20,4 @@ var tnaNewsLetter = function() {
   });
 };
 
-window.addEventListener('DOMContentLoaded', tnaNewsLetter);
+window.addEventListener('DOMContentLoaded', dsWpPluginNewsletter);
