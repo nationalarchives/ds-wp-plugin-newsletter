@@ -45,8 +45,6 @@ function wpdocs_ds_wp_plugin_newsletter_func( $atts) {
                 return thank_you_message(); 
            }
        }
-   } else {
-      return $form->init_form();
    }
 
    $form = new Newsletter_Form_Builder('signup','signup','','post',$error, $content);
