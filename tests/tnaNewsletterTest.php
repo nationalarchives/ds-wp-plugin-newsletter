@@ -17,8 +17,6 @@ class tnaNewsletterTest extends PHPUnit_Framework_TestCase
         function esc_attr( $text ) {
             return filter_var($text, FILTER_SANITIZE_STRING);
         }
-
-        $_POST['Submit'];
         
         $content = array(
             'Sign up to our mailing list',
