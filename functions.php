@@ -88,7 +88,7 @@ function wporg_shortcodes_init()
  * Custom menu settings
  * @codeCoverageIgnore
  */
-function tna_newsletter_create_menu() {
+function ds_wp_plugin_newsletter_create_menu() {
 	//create new top-level menu
 	add_menu_page('TNA Newsletter', 'TNA Newsletter', 'administrator', __FILE__, 'ds_wp_plugin_newsletter_settings_page' , 'dashicons-buddicons-pm' );
 
@@ -100,7 +100,7 @@ function tna_newsletter_create_menu() {
  * Register plugin settings
  * @codeCoverageIgnore
  **/
-function register_tna_newsletter_settings() {
+function register_ds_wp_plugin_newsletter_settings() {
 	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_api_key' );
 	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_api_id' );
 	register_setting( 'ds-wp-plugin-newsletter-settings-group', 'tna_newsletter_form_title' );
@@ -115,7 +115,7 @@ function register_tna_newsletter_settings() {
  * Display plugin settings
  * @codeCoverageIgnore
  **/
-function tna_newsletter_settings_page() { ?>
+function ds_wp_plugin_newsletter_settings_page() { ?>
 <div class="wrap">
     <div id="welcome-panel" class="welcome-panel">
         <div class="welcome-panel-content">
