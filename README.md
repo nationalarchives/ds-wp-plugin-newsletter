@@ -1,4 +1,4 @@
-# tna-newsletter-wp-plugin
+# ds-wp-plugin-newsletter
 TNA Wordpress Newsletter Plugin
 
 ## Usage
