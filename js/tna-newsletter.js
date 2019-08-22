@@ -6,7 +6,7 @@ var tnaNewsLetter = function() {
   var btn = document.querySelector('#newsletterSignUp');
   var checkBox = document.querySelector('#privacy_policy');
 
-  // Disable Submit button by default
+  // Disable Submit button on page load
   btn.disabled = true;
 
   checkBox.addEventListener('click', function(e) {

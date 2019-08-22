@@ -2,6 +2,7 @@
 
 /**
  * Plugin Initialisation
+ * @codeCoverageIgnore
  */
 function tna_newsletter_plugin_Init() {
     require_once dirname(__FILE__) . '/tna-newsletter.php';
@@ -10,6 +11,7 @@ function tna_newsletter_plugin_Init() {
 
 /**
  * Enqueue Scripts
+ * @codeCoverageIgnore
  */
 function tna_newsletter_admin_scripts() {
      wp_enqueue_script ( 'tna-newsletter-script', plugin_dir_url( __FILE__ ) . 'js/tna-newsletter.js','','',false );
@@ -18,6 +20,7 @@ function tna_newsletter_admin_scripts() {
 
 /**
  * Shortcode [tna-newsletter]
+ * @codeCoverageIgnore
  */
 function wpdocs_tna_newsletter_func( $atts) {
     // API Connection
@@ -54,12 +57,14 @@ function wpdocs_tna_newsletter_func( $atts) {
 function thank_you_message(){
    global $results;
 
-   $tnx_p_one = get_option('tna_newsletter_tnx_paragraph_one'); // Thank you page paragraph one
-   $tnx_p_two = get_option('tna_newsletter_tnx_paragraph_two'); // Thank you page paragraph two
+   $tnx_title = get_option('tna_newsletter_tnx_title'); // Thank you page -> title
+   $tnx_p_one = get_option('tna_newsletter_tnx_paragraph_one'); // Thank you page -> paragraph one
+   $tnx_p_two = get_option('tna_newsletter_tnx_paragraph_two'); // Thank you page -> paragraph two
    
    if(isset($results)){
        if($results['valid']){
-           $content  = '<p>' . esc_attr($tnx_p_one) .'</p>';
+           $content = '<h2>' . esc_attr($tnx_title) .' </h2>';
+           $content .= '<p>' . esc_attr($tnx_p_one) .'</p>';
            $content .= '<p>' . esc_attr($tnx_p_two) .'<a href="http://nationalarchives.gov.uk/legal/privacy.htm">' . esc_attr('privacy policy'). '</a>.</p>';
            $content .= '<a class="button" href="https://www.nationalarchives.gov.uk">' . esc_attr('Back to home page') . '</a>';
            
@@ -71,6 +76,7 @@ function thank_you_message(){
 
 /**
  * Shortcodes INIT
+ * @codeCoverageIgnore
  */
 function wporg_shortcodes_init()
 {
@@ -80,6 +86,7 @@ function wporg_shortcodes_init()
 
 /**
  * Custom menu settings
+ * @codeCoverageIgnore
  */
 function tna_newsletter_create_menu() {
 	//create new top-level menu
@@ -89,17 +96,25 @@ function tna_newsletter_create_menu() {
 	add_action( 'admin_init', 'register_tna_newsletter_settings' );
 }
 
+/**
+ * Register plugin settings
+ * @codeCoverageIgnore
+ **/
 function register_tna_newsletter_settings() {
-	//register our settings
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_api_key' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_api_id' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_title' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_paragraph' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_form_privacy' );
+	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_title' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_one' );
 	register_setting( 'tna-newsletter-settings-group', 'tna_newsletter_tnx_paragraph_two' );
 }
 
+/**
+ * Display plugin settings
+ * @codeCoverageIgnore
+ **/
 function tna_newsletter_settings_page() { ?>
 <div class="wrap">
     <div id="welcome-panel" class="welcome-panel">
@@ -142,6 +157,14 @@ function tna_newsletter_settings_page() { ?>
                             <td>
                                 <textarea rows="4" cols="50"
                                     name="tna_newsletter_form_privacy"><?php echo esc_attr( get_option('tna_newsletter_form_privacy') ); ?></textarea>
+                            </td>
+                        </tr>
+
+                        <tr valign="top">
+                            <th scope="row">Thank you -> Title</th>
+                            <td>
+                                <textarea rows="4" cols="50"
+                                    name="tna_newsletter_tnx_title"><?php echo esc_attr( get_option('tna_newsletter_tnx_title') ); ?></textarea>
                             </td>
                         </tr>
 

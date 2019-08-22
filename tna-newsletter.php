@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       TNA Newsletter
- * Plugin URI:        https://example.com/plugins/the-basics/
+ * Plugin URI:        https://github.com/nationalarchives/tna-newsletter-wp-plugin
  * Description:       Handle the E-Connect API and allow newsletter signups.
  * Version:           0.1
  * Author:            Mihai Diaconita
@@ -30,6 +30,7 @@ along with TNA Newsletter. If not, see {URI to Plugin License}.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
 // Plugin init
 add_action( 'plugins_loaded', 'tna_newsletter_plugin_Init' );
 
