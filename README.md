@@ -11,6 +11,9 @@
 
 ```[tna-newsletter]```
 
+## Dependencies
+E-Connect ```API KEY and API ID``` are needed!
+
 ### Development machine configuration
 
 **Download the repository.**
