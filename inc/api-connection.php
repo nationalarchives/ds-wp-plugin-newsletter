@@ -86,13 +86,11 @@ if(!class_exists('ApiConnection')){
 			curl_setopt($curl, CURLOPT_PROXY, WP_PROXY_HOST . ':' . WP_PROXY_PORT);
 			curl_setopt($curl, CURLOPT_HTTPPROXYTUNNEL, 1);
 
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+			
 			// curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 			// curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
-			// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			// curl_setopt($ch, CURLOPT_POST, count($fields));
-			// curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 	
 			// Make sure the cURL request can be run
 			if (($rest_response = curl_exec($curl)) === false) {
