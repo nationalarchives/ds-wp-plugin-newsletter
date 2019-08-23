@@ -7,6 +7,7 @@
  * Version: 1.0.1
  * Requires: PHP 5.2+, cURL
  */
+ 
 if(!class_exists('ApiConnection')){
 	class ApiConnection {
 		/**
@@ -78,7 +79,7 @@ if(!class_exists('ApiConnection')){
 			// Define the common cURL options
 			curl_setopt($curl, CURLOPT_URL, $request);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_TIMEOUT, 15); 
+			curl_setopt($curl, CURLOPT_TIMEOUT, 10); 
 	
 			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); 
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
