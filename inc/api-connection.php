@@ -78,7 +78,7 @@ if(!class_exists('ApiConnection')){
 			// Define the common cURL options
 			curl_setopt($curl, CURLOPT_URL, $request);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_TIMEOUT, 10); 
+			curl_setopt($curl, CURLOPT_TIMEOUT, 15); 
 	
 			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false); 
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
@@ -88,9 +88,6 @@ if(!class_exists('ApiConnection')){
 
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
-			
-			// curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-			// curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
 	
 			// Make sure the cURL request can be run
 			if (($rest_response = curl_exec($curl)) === false) {
