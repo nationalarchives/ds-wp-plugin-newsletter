@@ -50,3 +50,11 @@ Having followed the steps above you will be able to install dependencies by typi
 ### PHPUnit
 
 Having followed the steps under 'Installing Composer' type ```vendor/bin/phpunit -c phpunit.xml``` from within the ```ds-wp-plugin-newsletter``` directory to run Unit Tests for the project.
+
+### IMPORTANT
+
+On local development environment comment out the following lines in ```inc/api-connection.php```
+
+```curl_setopt($curl, CURLOPT_PROXY, WP_PROXY_HOST . ':' . WP_PROXY_PORT);```
+
+```curl_setopt($curl, CURLOPT_HTTPPROXYTUNNEL, 1);```
