@@ -63,7 +63,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          * @var String
          */
         public function get_form_body(){
-            $form = '<form name="'. $this->name .'" id="' . $this->id . '" action="'. $this->action .'" method="'. $this->method .'" role="form">';
+            $form = '<form name="%s" id="%s" action="%s" method="%s" role="form">';
             $form .= '<input type="hidden" name="signup" value="NDQ1">';
             $form .= '<input type="hidden" name="confirmation_subject" value="">';
             $form .= '<input type="hidden" name="confirmation" value="">';
@@ -71,7 +71,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
             $form .= '<input type="hidden" name="source" value="web">';
             $form .= '<input type="hidden" name="opt_in" value="1">';
     
-            return $form;
+            return sprintf($form,$this->name,$this->id,$this->action,$this->method);
         }
     
         /**
@@ -88,7 +88,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */ 
         public function get_paragraph() {
             if(function_exists('esc_attr')) {
-                return '<div class="form-row"><p>'. esc_attr($this->content[1]) .'</p></div>';
+                if(!empty($this->content[1])){
+                    return sprintf('<div class="form-row"><p>%s</p></div>', esc_attr($this->content[1]));
+                }
             }
         }
         
@@ -98,7 +100,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_legend(){
             if(function_exists('esc_attr')) {
-                return '<legend>'. esc_attr($this->content[0]) .'</legend>';
+                if(!empty(esc_attr($this->content[0]))){
+                    return sprintf('<legend>%s</legend>', esc_attr($this->content[0]));
+                }
             }
         }
         
@@ -108,7 +112,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_email_input(){
             if(function_exists('esc_attr')) {
-                return '<div class="form-row"><label for="email">' . esc_attr('Email address') .'</label><input type="email" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility" required></div>';
+                $email ='<div class="form-row"><label for="email">%s</label><input type="email" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility" required></div>';
+                
+                return sprintf($email,esc_attr('Email address'));
             } 
         }
     
@@ -118,7 +124,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_first_name_input(){
             if(function_exists('esc_attr')) {
-                return '<div class="form-row"><label for="firstname">' . esc_attr('First name') .' <span class="optional">' . esc_attr('(optional)') .'</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name" aria-labelledby="newsletterAccessibility"></div>';
+                $fname ='<div class="form-row"><label for="firstname">%s <span class="optional">%s</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name" aria-labelledby="newsletterAccessibility"></div>';
+
+                return sprintf($fname,esc_attr('First name'),esc_attr('(optional)'));
             }  
         }
     
@@ -128,7 +136,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_last_name_input(){
             if(function_exists('esc_attr')) {
-                return '<div class="form-row"><label for="lastname">' . esc_attr('Last name') .' <span class="optional">' . esc_attr('(optional)') .'</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name" aria-labelledby="newsletterAccessibility"></div>';
+                $lname = '<div class="form-row"><label for="lastname">%s <span class="optional">%s</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name" aria-labelledby="newsletterAccessibility"></div>';
+
+                return sprintf($lname,esc_attr('Last name'),esc_attr('(optional)'));
             }
         }
     
@@ -138,7 +148,9 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_terms_checkbox(){
             if(function_exists('esc_attr')) {
-                return '<div class="form-row checkbox"><input id="privacy_policy" type="checkbox" name="privacy_policy"><label for="privacy_policy">'. esc_attr($this->content[2]) .' <a href="https://nationalarchives.gov.uk/legal/privacy-policy/">' . esc_attr('Privacy Policy') .'</a>.</label></div>';
+                $terms = '<div class="form-row checkbox"><input id="privacy_policy" type="checkbox" name="privacy_policy"><label for="privacy_policy">%s <a href="https://nationalarchives.gov.uk/legal/privacy-policy/">%s</a>.</label></div>';
+
+                return sprintf($terms, esc_attr($this->content[2]), esc_attr('Privacy Policy'));
             }
         }
             
@@ -174,7 +186,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
             if(function_exists('esc_attr')) {
                 if(isset($_POST['Submit'])){
                     if(!empty($this->error)) {
-                        return '<div class="emphasis-block error-message">'. esc_attr($this->error) .'</div>';
+                        return sprintf('<div class="emphasis-block error-message">%s</div>', esc_attr($this->error));
                     }
                 }
             }
@@ -186,17 +198,17 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function init_form()  {
             $form = $this->is_error_message();
+            $form .= $this->get_form_body();
             $form .= $this->is_open_fieldset();
             $form .= $this->get_legend();
             $form .= $this->get_paragraph();
-            $form .= $this->get_form_body();
             $form .= $this->get_first_name_input();
             $form .= $this->get_last_name_input();
             $form .= $this->get_email_input();
             $form .= $this->get_terms_checkbox();
             $form .= $this->is_sign_up();
-            $form .= $this->is_close_form();
             $form .= $this->is_close_fieldset();    
+            $form .= $this->is_close_form();
     
             return $form;
         }

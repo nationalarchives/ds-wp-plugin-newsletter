@@ -65,7 +65,7 @@ function thank_you_message(){
        if($results['valid']){
            $content = '<h2>' . esc_attr($tnx_title) .' </h2>';
            $content .= '<p>' . esc_attr($tnx_p_one) .'</p>';
-           $content .= '<p>' . esc_attr($tnx_p_two) .'<a href="http://nationalarchives.gov.uk/legal/privacy.htm">' . esc_attr('privacy policy'). '</a>.</p>';
+           $content .= '<p>' . esc_attr($tnx_p_two) .' <a href="http://nationalarchives.gov.uk/legal/privacy.htm">' . esc_attr('privacy policy'). '</a>.</p>';
            $content .= '<a class="button" href="https://www.nationalarchives.gov.uk">' . esc_attr('Back to home page') . '</a>';
            
         return $content;
