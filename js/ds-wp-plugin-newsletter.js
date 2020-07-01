@@ -4,20 +4,24 @@
  */
 var dsWpPluginNewsletter = function() {
   var btn = document.querySelector('#newsletterSignUp');
-  var checkBox = document.querySelector('#privacy_policy');
 
-  // Disable Submit button on page load
-  btn.disabled = true;
+  if(btn !== null && btn !== 'undefined') {
+    var checkBox = document.querySelector('#privacy_policy');
 
-  checkBox.addEventListener('click', function(e) {
-    if (e.target.checked) {
-      btn.disabled = false;
-      btn.classList.remove('disabled');
-    } else {
-      btn.disabled = true;
-      btn.classList.add('disabled');
-    }
-  });
+    // Disable Submit button on page load
+    btn.disabled = true;
+
+    checkBox.addEventListener('click', function(e) {
+      if (e.target.checked) {
+        btn.disabled = false;
+        btn.classList.remove('disabled');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('disabled');
+      }
+    });
+  }
+
 };
 
 window.addEventListener('DOMContentLoaded', dsWpPluginNewsletter);
