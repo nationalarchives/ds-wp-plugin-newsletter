@@ -4,20 +4,29 @@
  */
 var dsWpPluginNewsletter = function() {
   var btn = document.querySelector('#newsletterSignUp');
-  var checkBox = document.querySelector('#privacy_policy');
 
-  // Disable Submit button on page load
-  btn.disabled = true;
+  if(btn !== null && btn !== 'undefined') {
 
-  checkBox.addEventListener('click', function(e) {
-    if (e.target.checked) {
-      btn.disabled = false;
-      btn.classList.remove('disabled');
-    } else {
-      btn.disabled = true;
-      btn.classList.add('disabled');
+    var toggleButton = function(checkbox) {
+      if (checkbox.checked) {
+        btn.disabled = false;
+        btn.classList.remove('disabled');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('disabled');
+      }
     }
-  });
+
+    var checkBox = document.querySelector('#privacy_policy');
+
+    toggleButton(checkBox);
+
+    checkBox.addEventListener('click', function(e) {
+      toggleButton(e.target);
+    });
+
+  }
+
 };
 
 window.addEventListener('DOMContentLoaded', dsWpPluginNewsletter);
