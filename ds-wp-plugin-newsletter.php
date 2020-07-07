@@ -3,7 +3,7 @@
  * Plugin Name:       TNA Newsletter
  * Plugin URI:        https://github.com/nationalarchives/tna-newsletter-wp-plugin
  * Description:       Handle the E-Connect API and allow newsletter signups.
- * Version:           0.1
+ * Version:           1.1 (2020-07-07)
  * Author:            Mihai Diaconita
  * Author URI:        https://nationalarchives.gov.uk
  * License:           GPL v2 or later
