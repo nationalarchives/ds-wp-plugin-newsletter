@@ -58,17 +58,17 @@ class tnaNewsletterTest extends PHPUnit_Framework_TestCase
 
         // @method->get_email_input()
         $this->assertTrue(method_exists($form, 'get_email_input'));
-        $this->assertEquals('<div class="form-row"><label for="email">Email address</label><input type="email" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility" required></div>', $form->get_email_input());
+        $this->assertEquals('<div class="form-row"><label for="email">Email address</label><input type="email" name="email" id="email" placeholder="Enter your email address" required></div>', $form->get_email_input());
         $this->assertNotEquals(null,$form->get_email_input());
 
         // $method->get_first_name_input()
         $this->assertTrue(method_exists($form, 'get_first_name_input'));
-        $this->assertEquals('<div class="form-row"><label for="firstname">First name <span class="optional">(optional)</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name" aria-labelledby="newsletterAccessibility"></div>', $form->get_first_name_input());
+        $this->assertEquals('<div class="form-row"><label for="firstname">First name <span class="optional">(optional)</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name"></div>', $form->get_first_name_input());
         $this->assertNotEquals(null,$form->get_first_name_input());
 
         // @method->get_last_name_input()
         $this->assertTrue(method_exists($form, 'get_last_name_input'));
-        $this->assertEquals('<div class="form-row"><label for="lastname">Last name <span class="optional">(optional)</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name" aria-labelledby="newsletterAccessibility"></div>', $form->get_last_name_input());
+        $this->assertEquals('<div class="form-row"><label for="lastname">Last name <span class="optional">(optional)</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name"></div>', $form->get_last_name_input());
         $this->assertNotEquals(null,$form->get_last_name_input());
 
         // @method->get_terms_checkbox()
