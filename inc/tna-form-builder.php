@@ -112,7 +112,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_email_input(){
             if(function_exists('esc_attr')) {
-                $email ='<div class="form-row"><label for="email">%s</label><input type="email" name="email" id="email" placeholder="Enter your email address" aria-labelledby="newsletterAccessibility" required></div>';
+                $email ='<div class="form-row"><label for="email">%s</label><input type="email" name="email" id="email" placeholder="Enter your email address" required></div>';
                 
                 return sprintf($email,esc_attr('Email address'));
             } 
@@ -124,7 +124,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_first_name_input(){
             if(function_exists('esc_attr')) {
-                $fname ='<div class="form-row"><label for="firstname">%s <span class="optional">%s</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name" aria-labelledby="newsletterAccessibility"></div>';
+                $fname ='<div class="form-row"><label for="firstname">%s <span class="optional">%s</span></label><input type="text" name="firstname" id="firstname" placeholder="Enter your first name"></div>';
 
                 return sprintf($fname,esc_attr('First name'),esc_attr('(optional)'));
             }  
@@ -136,7 +136,7 @@ if ( !class_exists( 'Newsletter_Form_Builder' ) ) {
          */
         public function get_last_name_input(){
             if(function_exists('esc_attr')) {
-                $lname = '<div class="form-row"><label for="lastname">%s <span class="optional">%s</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name" aria-labelledby="newsletterAccessibility"></div>';
+                $lname = '<div class="form-row"><label for="lastname">%s <span class="optional">%s</span></label><input type="text" name="lastname" id="lastname" placeholder="Enter your last name"></div>';
 
                 return sprintf($lname,esc_attr('Last name'),esc_attr('(optional)'));
             }
