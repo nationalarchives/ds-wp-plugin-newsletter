@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/nationalarchives/ds-wp-plugin-newsletter.svg?branch=develop)](https://travis-ci.org/nationalarchives/ds-wp-plugin-newsletter)
 
 <p align="center">
   <a href="https://www.nationalarchives.gov.uk">
